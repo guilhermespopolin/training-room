@@ -6,6 +6,7 @@
 
 :root {
   /* colors */
+  --clr-blue-50: hsl(225, 100%, 96%);
   --clr-blue-100: hsl(225, 100%, 94%);
   --clr-blue-600: hsl(245, 75%, 52%);
   --clr-blue-800: hsl(223, 47%, 23%);
@@ -86,6 +87,7 @@ button {
 .btn-primary {
   background-color: var(--clr-blue-600);
   color: var(--clr-white);
+  box-shadow: 0 4px 30px var(--clr-gray);
 }
 
 .btn-text {
@@ -139,7 +141,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--clr-blue-100);
+  background-color: var(--clr-blue-50);
   padding: 1em;
   border-radius: 0.5em;
 }
