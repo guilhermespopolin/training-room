@@ -83,7 +83,8 @@ h6 {
   background-color: hsl(var(--clr-white));
   padding: 1em;
   border-radius: 18px;
-  max-width: 19rem;
+  max-width: 20rem;
+  min-height: 30.6rem;
 }
 
 .card__header {
@@ -99,7 +100,7 @@ h6 {
 .card__description__title {
   font-size: 1.3rem;
   font-weight: var(--fw-bold);
-  color: hsl(var(--clr-black));
+  color: hsl(var(--clr-black) / 0.8);
 }
 
 .card__description__content {
