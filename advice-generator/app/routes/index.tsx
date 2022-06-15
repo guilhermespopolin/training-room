@@ -1,4 +1,4 @@
-import type { LoaderFunction } from "@remix-run/node";
+import type { MetaFunction, LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
@@ -7,6 +7,13 @@ import { AdviceCard } from "~/components/AdviceCard";
 
 type LoaderData = {
   advice: Awaited<ReturnType<typeof getRandomAdvice>>;
+};
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "Frontendmentor | Advice Generator",
+    description: "Get random advices with one click",
+  };
 };
 
 export const loader: LoaderFunction = async () => {
