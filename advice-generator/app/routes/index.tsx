@@ -12,7 +12,7 @@ type LoaderData = {
 export const meta: MetaFunction = () => {
   return {
     title: "Frontendmentor | Advice Generator",
-    description: "Get random advices with one click",
+    description: "Get random advices",
   };
 };
 
