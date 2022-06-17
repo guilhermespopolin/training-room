@@ -1,4 +1,4 @@
-import { Form } from "@remix-run/react";
+import { Form, useTransition } from "@remix-run/react";
 
 import type { Advice } from "~/modules/advice";
 
@@ -7,9 +7,11 @@ type AdviceCardProps = {
 };
 
 export function AdviceCard({ advice }: AdviceCardProps) {
+  const { state } = useTransition();
+
   return (
     <main className="flex items-center justify-center px-4 h-screen bg-blue-bayoux-700">
-      <Form method="get" action="/">
+      <Form replace method="get" action="/">
         <div
           className={[
             "relative",
@@ -62,6 +64,7 @@ export function AdviceCard({ advice }: AdviceCardProps) {
             ].join(" ")}
             aria-label="Get a new advice"
             type="submit"
+            disabled={state === "submitting"}
           >
             <img src="/images/icon-dice.svg" alt="Dice icon" />
           </button>
