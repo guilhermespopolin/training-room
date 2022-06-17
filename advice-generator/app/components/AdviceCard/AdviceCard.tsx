@@ -41,7 +41,7 @@ export function AdviceCard({ advice }: AdviceCardProps) {
             Advice #{advice.id}
           </h1>
           <blockquote className="text-2xl font-bold text-center">
-            {advice.text}
+            "{advice.text}"
           </blockquote>
           <img
             className="m-6 w-full"
@@ -49,7 +49,8 @@ export function AdviceCard({ advice }: AdviceCardProps) {
             src="/images/pattern-divider-mobile.svg"
             srcSet="/images/pattern-divider-mobile.svg 375w,
                     /images/pattern-divider-desktop.svg 768w"
-            alt=""
+            sizes="400px"
+            alt="separator"
           />
           <button
             className={[
