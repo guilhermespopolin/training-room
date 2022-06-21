@@ -1,6 +1,6 @@
-import { Form, useTransition } from "@remix-run/react";
-
 import type { Advice } from "~/modules/advice";
+
+import { Form, useTransition } from "@remix-run/react";
 
 type AdviceCardProps = {
   advice: Advice;
@@ -18,6 +18,7 @@ export function AdviceCard({ advice }: AdviceCardProps) {
             "flex",
             "flex-col",
             "items-center",
+            "aspect-video",
             "max-w-sm",
             "px-6",
             "py-8",
@@ -40,7 +41,7 @@ export function AdviceCard({ advice }: AdviceCardProps) {
           >
             Advice #{advice.id}
           </h1>
-          <blockquote className="text-2xl font-bold text-center">
+          <blockquote className="flex-1 text-2xl font-bold text-center">
             "{advice.text}"
           </blockquote>
           <img
@@ -53,6 +54,7 @@ export function AdviceCard({ advice }: AdviceCardProps) {
             alt="separator"
           />
           <button
+            type="submit"
             className={[
               "absolute",
               "top-[calc(100%-theme(space.7))]",
@@ -61,13 +63,36 @@ export function AdviceCard({ advice }: AdviceCardProps) {
               "rounded-full",
               "bg-aquamarine",
               "transition-shadow",
-              "hocus:shadow-[0_0_24px_0_theme(colors.aquamarine.DEFAULT)]",
+              "enabled:hocus:shadow-[0_0_24px_0_theme(colors.aquamarine.DEFAULT)]",
+              "disabled:cursor-not-allowed",
             ].join(" ")}
             aria-label="Get a new advice"
-            type="submit"
             disabled={state === "submitting"}
           >
-            <img src="/images/icon-dice.svg" alt="Dice icon" />
+            {state === "submitting" ? (
+              <svg
+                className="animate-spin h-5 w-5 text-blue-bayoux"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            ) : (
+              <img src="/images/icon-dice.svg" alt="Dice icon" />
+            )}
           </button>
         </div>
       </Form>
