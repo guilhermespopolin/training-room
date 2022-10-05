@@ -1,12 +1,13 @@
 {
   "name": "advice-generator",
-  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run build:css && npm run build:remix",
+    "build": "yarn run build:css && npm run build:remix",
     "build:css": "npx tailwindcss -o app/styles/app.css -m",
     "build:remix": "remix build",
-    "dev": "concurrently \"npm run dev:css\" \"npm run dev:remix\"",
+    "dev": "concurrently \"yarn run dev:css\" \"yarn run dev:remix\"",
     "dev:remix": "remix dev",
     "dev:css": "npx tailwindcss -o app/styles/app.css -w",
     "start": "remix-serve build"
